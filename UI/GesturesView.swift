@@ -20,86 +20,90 @@ struct GesturesView: View {
     var body: some View {
         HStack(spacing: 0) {
             // Left: Trackpad diagram
-            VStack(spacing: 20) {
-                Text("Tap a zone to configure gestures")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
+            ScrollView {
+                VStack(spacing: 20) {
+                    Text("Tap a zone to configure gestures")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                        .padding(.top, 10)
 
-                TrackpadDiagramView(onZoneSelected: { zone in
-                    withAnimation(.spring(response: 0.3)) {
-                        selectedZone = zone
-                    }
-                })
-                .padding(.horizontal, 24)
-
-                if let zone = selectedZone {
-                    zoneRulesSummary(zone: zone)
-                        .transition(.move(edge: .bottom).combined(with: .opacity))
-                }
-                
-                Spacer()
-                
-                GroupBox {
-                    VStack(alignment: .leading, spacing: 12) {
-                        Toggle(isOn: $isNaturalScrolling) {
-                            Text("Natural Scrolling")
-                                .font(.headline)
+                    TrackpadDiagramView(onZoneSelected: { zone in
+                        withAnimation(.spring(response: 0.3)) {
+                            selectedZone = zone
                         }
-                        .toggleStyle(.switch)
-                        
-                        Text("Pushing your fingers upwards triggers Scroll Up.")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
+                    })
+                    .padding(.horizontal, 24)
+                    .frame(minHeight: 180)
+
+                    if let zone = selectedZone {
+                        zoneRulesSummary(zone: zone)
+                            .transition(.move(edge: .bottom).combined(with: .opacity))
                     }
-                    .padding(8)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                }
-                
-                GroupBox {
-                    VStack(alignment: .leading, spacing: 12) {
-                        HStack {
-                            Text("Scroll Sensitivity")
-                                .font(.headline)
-                            Spacer()
-                            Text("\(Int(scrollSensitivity))")
-                                .font(.subheadline.monospacedDigit())
+                    
+                    Spacer()
+                    
+                    GroupBox {
+                        VStack(alignment: .leading, spacing: 12) {
+                            Toggle(isOn: $isNaturalScrolling) {
+                                Text("Natural Scrolling")
+                                    .font(.headline)
+                            }
+                            .toggleStyle(.switch)
+                            
+                            Text("Pushing your fingers upwards triggers Scroll Up.")
+                                .font(.caption)
                                 .foregroundColor(.secondary)
                         }
-                        
-                        Slider(value: $scrollSensitivity, in: 1.0...50.0, step: 1.0)
-                            .onChange(of: scrollSensitivity) { newValue in
-                                GestureRecogniser.shared.scrollFireThreshold = newValue
-                            }
-                        
-                        Text("Lower values trigger scrolls faster.")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
+                        .padding(8)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
-                    .padding(8)
-                }
-                
-                GroupBox {
-                    VStack(alignment: .leading, spacing: 12) {
-                        Text("Zone Dimensions")
-                            .font(.headline)
-                        
-                        HStack(spacing: 24) {
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text("Left: \(Int(leftWidth * 100))%")
-                                    .font(.subheadline)
-                                Slider(value: $leftWidth, in: 0.10...0.45, step: 0.05)
+                    
+                    GroupBox {
+                        VStack(alignment: .leading, spacing: 12) {
+                            HStack {
+                                Text("Scroll Sensitivity")
+                                    .font(.headline)
+                                Spacer()
+                                Text("\(Int(scrollSensitivity))")
+                                    .font(.subheadline.monospacedDigit())
+                                    .foregroundColor(.secondary)
                             }
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text("Right: \(Int(rightWidth * 100))%")
-                                    .font(.subheadline)
-                                Slider(value: $rightWidth, in: 0.10...0.45, step: 0.05)
+                            
+                            Slider(value: $scrollSensitivity, in: 1.0...50.0, step: 1.0)
+                                .onChange(of: scrollSensitivity) { newValue in
+                                    GestureRecogniser.shared.scrollFireThreshold = newValue
+                                }
+                            
+                            Text("Lower values trigger scrolls faster.")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(8)
+                    }
+                    
+                    GroupBox {
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("Zone Dimensions")
+                                .font(.headline)
+                            
+                            HStack(spacing: 24) {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text("Left: \(Int(leftWidth * 100))%")
+                                        .font(.subheadline)
+                                    Slider(value: $leftWidth, in: 0.10...0.45, step: 0.05)
+                                }
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text("Right: \(Int(rightWidth * 100))%")
+                                        .font(.subheadline)
+                                    Slider(value: $rightWidth, in: 0.10...0.45, step: 0.05)
+                                }
                             }
                         }
+                        .padding(8)
                     }
-                    .padding(8)
                 }
+                .padding(24)
             }
-            .padding(24)
             .frame(maxWidth: .infinity)
             .background(.ultraThinMaterial)
 
