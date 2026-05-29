@@ -61,6 +61,9 @@ jobs:
         </dict>
         </plist>
         EOF
+        
+        # Ad-hoc sign the app bundle so macOS doesn't think it is corrupted
+        codesign --force --deep --sign - "$APP_DIR"
 
     - name: Install create-dmg
       run: brew install create-dmg

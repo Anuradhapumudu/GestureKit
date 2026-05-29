@@ -29,6 +29,13 @@ The easiest way to install GestureKit is by downloading the pre-built installer.
 3. Open the `.dmg` and drag `GestureKit.app` into your `/Applications` folder.
 4. Launch `GestureKit` and follow the on-screen prompt to grant **Accessibility permissions** (required to intercept gestures system-wide).
 
+> [!WARNING]
+> If macOS says the app is "damaged and can't be opened", this is because the app is not signed with a paid Apple Developer certificate. To fix this, open your Terminal and run:
+> ```bash
+> xattr -cr /Applications/GestureKit.app
+> ```
+> Then try opening it again!
+
 ---
 
 ## 🛠️ Build from Source
