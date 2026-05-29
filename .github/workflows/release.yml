@@ -33,8 +33,8 @@ jobs:
         # Copy the executable
         cp .build/release/GestureKit "$MACOS_DIR/"
         
-        # Copy resources (if any)
-        # Note: If you have an Assets.car or other resources, they would be copied here.
+        # Copy the ICNS file for the app icon
+        cp AppIcon.icns "$RESOURCES_DIR/"
         
         # Generate Info.plist
         cat > "$CONTENTS_DIR/Info.plist" <<EOF
@@ -44,6 +44,8 @@ jobs:
         <dict>
             <key>CFBundleExecutable</key>
             <string>GestureKit</string>
+            <key>CFBundleIconFile</key>
+            <string>AppIcon.icns</string>
             <key>CFBundleIdentifier</key>
             <string>com.anuradhapumudu.gesturekit</string>
             <key>CFBundleName</key>
