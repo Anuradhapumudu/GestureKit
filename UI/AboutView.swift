@@ -82,6 +82,11 @@ struct AboutView: View {
                         )
                     }
                     .buttonStyle(.bordered)
+                    
+                    Button("Check for Updates...") {
+                        Updater.shared.checkForUpdates(showNoUpdateAlert: true)
+                    }
+                    .buttonStyle(.borderedProminent)
                 }
             }
             .padding(32)

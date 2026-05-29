@@ -40,6 +40,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             showSettings(tab: "onboarding")
         }
 
+        // Check for updates silently on startup
+        Updater.shared.checkForUpdates()
+
         // 5. Observe app switches so we can activate the correct per-app profile.
         NSWorkspace.shared.notificationCenter.addObserver(
             self,

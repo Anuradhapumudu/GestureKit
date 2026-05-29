@@ -37,6 +37,8 @@ jobs:
         cp AppIcon.icns "$RESOURCES_DIR/"
         
         # Generate Info.plist
+        VERSION="${GITHUB_REF_NAME#v}"
+        
         cat > "$CONTENTS_DIR/Info.plist" <<EOF
         <?xml version="1.0" encoding="UTF-8"?>
         <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -51,9 +53,9 @@ jobs:
             <key>CFBundleName</key>
             <string>GestureKit</string>
             <key>CFBundleVersion</key>
-            <string>1.0</string>
+            <string>$VERSION</string>
             <key>CFBundleShortVersionString</key>
-            <string>1.0</string>
+            <string>$VERSION</string>
             <key>LSMinimumSystemVersion</key>
             <string>13.0</string>
             <key>LSUIElement</key>
