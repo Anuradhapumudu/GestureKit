@@ -57,7 +57,7 @@ public final class TrackpadMonitor {
         let tap = CGEvent.tapCreate(
             tap: .cghidEventTap,       // Intercept at the HID level (before system processing)
             place: .headInsertEventTap,
-            options: .listenOnly,       // Don't modify/block events
+            options: .defaultTap,       // Allow modifying/blocking events
             eventsOfInterest: mask,
             callback: eventTapCallback,
             userInfo: Unmanaged.passUnretained(self).toOpaque()
@@ -95,11 +95,15 @@ public final class TrackpadMonitor {
 
     // MARK: – Event processing
 
-    /// Called by the C trampoline for every captured CGEvent.
-    fileprivate func handleEvent(_ event: CGEvent, type: CGEventType) {
+    /// Called by the C trampoline for every captured CGEvent. Returns true if the event should be blocked.
+    fileprivate func handleEvent(_ event: CGEvent, type: CGEventType) -> Bool {
         // Extract the normalised touch location.
         // CGEvent carries subtype and field data for trackpad events.
         let location = normaliseLocation(event)
+        
+        // Determine if the current physical touch centroid is in an active gesture zone (not the centre).
+        let currentZone = ZoneDetector.shared.zone(at: location)
+        let isEdgeZone = currentZone.id != GestureZone.full.id && currentZone.id != GestureZone.centre.id
 
         switch type {
         case .scrollWheel:
@@ -111,6 +115,9 @@ public final class TrackpadMonitor {
         default:
             break
         }
+        
+        // Block the event from reaching macOS if it originated from a custom edge/corner zone.
+        return isEdgeZone
     }
 
     // MARK: – Scroll handling
@@ -191,7 +198,14 @@ public final class TrackpadMonitor {
 private let eventTapCallback: CGEventTapCallBack = { proxy, type, event, userInfo in
     guard let userInfo else { return Unmanaged.passRetained(event) }
     let monitor = Unmanaged<TrackpadMonitor>.fromOpaque(userInfo).takeUnretainedValue()
-    monitor.handleEvent(event, type: type)
+    
+    let shouldBlock = monitor.handleEvent(event, type: type)
+    
+    // If the event originated in a gesture zone, consume it (return nil) so macOS ignores it.
+    if shouldBlock {
+        return nil
+    }
+    
     return Unmanaged.passRetained(event)
 }
 
