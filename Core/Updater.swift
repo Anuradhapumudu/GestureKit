@@ -60,36 +60,35 @@ public final class Updater {
     private func promptUpdate(newVersion: String, downloadURL: URL) {
         let alert = NSAlert()
         alert.messageText = "Update Available"
-        alert.informativeText = "GestureKit \(newVersion) is available! Would you like to download it now?"
+        alert.informativeText = "GestureKit \(newVersion) is available! Would you like to update and relaunch now?"
         alert.alertStyle = .informational
-        alert.addButton(withTitle: "Download")
+        alert.addButton(withTitle: "Update and Relaunch")
         alert.addButton(withTitle: "Later")
         
-        // Show over the main window if possible
         if let window = NSApplication.shared.windows.first {
             alert.beginSheetModal(for: window) { response in
                 if response == .alertFirstButtonReturn {
-                    self.downloadAndOpen(url: downloadURL)
+                    self.downloadAndUpdate(url: downloadURL)
                 }
             }
         } else {
             let response = alert.runModal()
             if response == .alertFirstButtonReturn {
-                self.downloadAndOpen(url: downloadURL)
+                self.downloadAndUpdate(url: downloadURL)
             }
         }
     }
     
-    private func downloadAndOpen(url: URL) {
+    private func downloadAndUpdate(url: URL) {
         let downloadsDir = FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first!
         let destinationURL = downloadsDir.appendingPathComponent(url.lastPathComponent)
         
-        // Remove existing file if it exists
         if FileManager.default.fileExists(atPath: destinationURL.path) {
             try? FileManager.default.removeItem(at: destinationURL)
         }
         
-        print("[Updater] Downloading from \(url) to \(destinationURL)")
+        // Let the user know we are downloading
+        showAlert(title: "Downloading Update...", message: "GestureKit is downloading the update. The app will automatically restart in a few moments.")
         
         let task = URLSession.shared.downloadTask(with: url) { [weak self] tempURL, response, error in
             guard let tempURL = tempURL, error == nil else {
@@ -99,18 +98,67 @@ public final class Updater {
             
             do {
                 try FileManager.default.moveItem(at: tempURL, to: destinationURL)
-                
-                DispatchQueue.main.async {
-                    // Open the DMG file automatically
-                    NSWorkspace.shared.open(destinationURL)
-                    
-                    self?.showAlert(title: "Download Complete", message: "The GestureKit disk image has been downloaded and opened.\n\nPlease drag the new app to your Applications folder to finish the update.")
-                }
+                self?.executeInstallScript(dmgURL: destinationURL)
             } catch {
                 self?.showAlert(title: "File Error", message: "Could not save the downloaded update.")
             }
         }
         task.resume()
+    }
+    
+    private func executeInstallScript(dmgURL: URL) {
+        let scriptPath = "/tmp/gesturekit_updater.sh"
+        let appPath = Bundle.main.bundlePath
+        
+        let scriptContent = """
+        #!/bin/bash
+        # Wait for GestureKit to exit
+        sleep 2
+        
+        # Mount the DMG silently
+        hdiutil attach "\(dmgURL.path)" -mountpoint /Volumes/GestureKitUpdate -nobrowse -quiet
+        
+        # Replace the current app
+        rm -rf "\(appPath)"
+        cp -a /Volumes/GestureKitUpdate/GestureKit.app "\(appPath)"
+        
+        # Remove quarantine flag
+        xattr -cr "\(appPath)"
+        
+        # Unmount the DMG
+        hdiutil detach /Volumes/GestureKitUpdate -quiet
+        
+        # Relaunch GestureKit
+        open "\(appPath)"
+        
+        # Clean up the DMG (optional, but nice)
+        rm "\(dmgURL.path)"
+        """
+        
+        do {
+            try scriptContent.write(toFile: scriptPath, atomically: true, encoding: .utf8)
+            
+            // Make executable
+            let task = Process()
+            task.launchPath = "/bin/chmod"
+            task.arguments = ["+x", scriptPath]
+            try task.run()
+            task.waitUntilExit()
+            
+            // Run the updater script in the background using nohup
+            let runTask = Process()
+            runTask.launchPath = "/usr/bin/nohup"
+            runTask.arguments = [scriptPath]
+            try runTask.run()
+            
+            // Quit the app immediately so the script can replace it
+            DispatchQueue.main.async {
+                NSApplication.shared.terminate(nil)
+            }
+            
+        } catch {
+            self.showAlert(title: "Update Failed", message: "Could not create the update script.")
+        }
     }
     
     private func showAlert(title: String, message: String) {

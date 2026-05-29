@@ -36,45 +36,72 @@ struct GesturesView: View {
                     zoneRulesSummary(zone: zone)
                         .transition(.move(edge: .bottom).combined(with: .opacity))
                 }
-
+                
                 Spacer()
                 
-                Toggle("Use Natural Scrolling", isOn: $isNaturalScrolling)
-                    .toggleStyle(.switch)
-                    .help("If enabled, pushing your fingers upwards triggers Scroll Up. If disabled, pushing upwards triggers Scroll Down.")
-                    .padding(.top, 10)
-
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("Scroll Distance to Trigger: \(Int(scrollSensitivity))")
-                        .font(.caption)
-                    Slider(value: $scrollSensitivity, in: 1.0...50.0, step: 1.0)
-                        .help("Lower means more sensitive. Default is 20.")
-                        .onChange(of: scrollSensitivity) { newValue in
-                            GestureRecogniser.shared.scrollFireThreshold = newValue
+                GroupBox {
+                    VStack(alignment: .leading, spacing: 12) {
+                        Toggle(isOn: $isNaturalScrolling) {
+                            Text("Natural Scrolling")
+                                .font(.headline)
                         }
+                        .toggleStyle(.switch)
+                        
+                        Text("Pushing your fingers upwards triggers Scroll Up.")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                    .padding(8)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 }
-                .padding(.top, 5)
-
-                Divider().padding(.vertical, 8)
-
-                Text("Zone Dimensions")
-                    .font(.caption).bold()
                 
-                HStack(spacing: 20) {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("Left Side: \(Int(leftWidth * 100))%")
-                            .font(.caption2)
-                        Slider(value: $leftWidth, in: 0.10...0.45, step: 0.05)
+                GroupBox {
+                    VStack(alignment: .leading, spacing: 12) {
+                        HStack {
+                            Text("Scroll Sensitivity")
+                                .font(.headline)
+                            Spacer()
+                            Text("\(Int(scrollSensitivity))")
+                                .font(.subheadline.monospacedDigit())
+                                .foregroundColor(.secondary)
+                        }
+                        
+                        Slider(value: $scrollSensitivity, in: 1.0...50.0, step: 1.0)
+                            .onChange(of: scrollSensitivity) { newValue in
+                                GestureRecogniser.shared.scrollFireThreshold = newValue
+                            }
+                        
+                        Text("Lower values trigger scrolls faster.")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
                     }
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("Right Side: \(Int(rightWidth * 100))%")
-                            .font(.caption2)
-                        Slider(value: $rightWidth, in: 0.10...0.45, step: 0.05)
+                    .padding(8)
+                }
+                
+                GroupBox {
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("Zone Dimensions")
+                            .font(.headline)
+                        
+                        HStack(spacing: 24) {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text("Left: \(Int(leftWidth * 100))%")
+                                    .font(.subheadline)
+                                Slider(value: $leftWidth, in: 0.10...0.45, step: 0.05)
+                            }
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text("Right: \(Int(rightWidth * 100))%")
+                                    .font(.subheadline)
+                                Slider(value: $rightWidth, in: 0.10...0.45, step: 0.05)
+                            }
+                        }
                     }
+                    .padding(8)
                 }
             }
             .padding(24)
             .frame(maxWidth: .infinity)
+            .background(.ultraThinMaterial)
 
             Divider()
 
@@ -132,16 +159,32 @@ struct GesturesView: View {
     // MARK: – Empty state
 
     private var emptyDetail: some View {
-        VStack(spacing: 16) {
-            Image(systemName: "hand.tap.fill")
-                .font(.system(size: 48))
-                .foregroundColor(.secondary.opacity(0.4))
-            Text("Tap a zone in the diagram\nto see its gesture rules")
-                .font(.body)
-                .foregroundColor(.secondary)
-                .multilineTextAlignment(.center)
+        VStack(spacing: 20) {
+            let base = Image(systemName: "hand.tap.fill")
+                .font(.system(size: 56))
+                .foregroundStyle(
+                    LinearGradient(colors: [Color.accentColor.opacity(0.6), Color.accentColor.opacity(0.3)],
+                                   startPoint: .topLeading, endPoint: .bottomTrailing)
+                )
+            
+            if #available(macOS 15, *) {
+                base.symbolEffect(.bounce, options: .repeating)
+            } else {
+                base
+            }
+            
+            VStack(spacing: 6) {
+                Text("Select a Zone")
+                    .font(.title2.weight(.semibold))
+                    .foregroundColor(.primary)
+                Text("Tap a zone in the diagram on the left\nto configure its gesture rules.")
+                    .font(.body)
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.ultraThinMaterial)
     }
 
     // MARK: – Helpers

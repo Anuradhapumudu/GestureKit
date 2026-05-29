@@ -53,9 +53,25 @@ struct TrackpadDiagramView: View {
             )
             .overlay(
                 RoundedRectangle(cornerRadius: size.width * 0.06)
-                    .strokeBorder(Color.white.opacity(0.12), lineWidth: 1.5)
+                    .strokeBorder(
+                        LinearGradient(
+                            colors: [.white.opacity(0.3), .white.opacity(0.05)],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        ),
+                        lineWidth: 1.5
+                    )
             )
-            .shadow(color: .black.opacity(0.6), radius: 20, y: 8)
+            // Inner shadow for depth
+            .overlay(
+                RoundedRectangle(cornerRadius: size.width * 0.06)
+                    .stroke(Color.black.opacity(0.5), lineWidth: 4)
+                    .blur(radius: 4)
+                    .offset(y: 2)
+                    .mask(RoundedRectangle(cornerRadius: size.width * 0.06).fill(LinearGradient(colors: [.black, .clear], startPoint: .top, endPoint: .bottom)))
+            )
+            // Drop shadow
+            .shadow(color: .black.opacity(0.8), radius: 25, y: 15)
     }
 
     // MARK: – Zone overlay

@@ -73,6 +73,7 @@ struct SettingsWindow: View {
         }
         .navigationSplitViewStyle(.balanced)
         .frame(minWidth: 800, minHeight: 500)
+        .background(.ultraThinMaterial)
     }
 }
 
