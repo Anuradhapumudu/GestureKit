@@ -197,6 +197,16 @@ struct OnboardingView: View {
                     }
                     .buttonStyle(.plain)
                     .disabled(isRequestingPermission || permissionGranted)
+                    
+                    if !permissionGranted {
+                        Button("Click here to Reset macOS Permissions if it's stuck") {
+                            resetTCC()
+                        }
+                        .font(.caption)
+                        .foregroundColor(.white.opacity(0.6))
+                        .buttonStyle(.plain)
+                        .padding(.top, 4)
+                    }
 
                     if permissionGranted {
                         Button("Continue →") { onComplete() }
@@ -222,6 +232,18 @@ struct OnboardingView: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             AccessibilityHelper.openSystemSettings()
             isRequestingPermission = false
+        }
+    }
+    
+    private func resetTCC() {
+        let task = Process()
+        task.launchPath = "/usr/bin/tccutil"
+        task.arguments = ["reset", "Accessibility", "com.anuradhapumudu.gesturekit"]
+        try? task.run()
+        
+        // Give macOS a moment, then re-prompt
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            grantPermission()
         }
     }
 }

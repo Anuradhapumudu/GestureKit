@@ -8,28 +8,7 @@ public enum AccessibilityHelper {
 
     public static var hasPermission: Bool {
         let options = [kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String: false]
-        if AXIsProcessTrustedWithOptions(options as CFDictionary) {
-            return true
-        }
-        
-        // macOS TCC Database Caching Bug Fallback:
-        // Sometimes AXIsProcessTrusted returns false even after the user checks the box.
-        // We can bypass the cache by directly attempting to create a dummy event tap.
-        // If it succeeds, we definitively have permission.
-        guard let dummyTap = CGEvent.tapCreate(
-            tap: .cghidEventTap,
-            place: .headInsertEventTap,
-            options: .listenOnly,
-            eventsOfInterest: 1 << CGEventType.mouseMoved.rawValue,
-            callback: { proxy, type, event, userInfo in return Unmanaged.passRetained(event) },
-            userInfo: nil
-        ) else {
-            return false
-        }
-        
-        // It succeeded! Clean up the dummy tap and return true.
-        CFMachPortInvalidate(dummyTap)
-        return true
+        return AXIsProcessTrustedWithOptions(options as CFDictionary)
     }
 
     /// Opens System Settings → Privacy & Security → Accessibility,
