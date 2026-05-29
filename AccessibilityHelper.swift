@@ -6,9 +6,9 @@ import ApplicationServices
 
 public enum AccessibilityHelper {
 
-    /// Returns true if GestureKit already has Accessibility permission.
     public static var hasPermission: Bool {
-        AXIsProcessTrusted()
+        let options = [kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String: false]
+        return AXIsProcessTrustedWithOptions(options as CFDictionary)
     }
 
     /// Opens System Settings → Privacy & Security → Accessibility,

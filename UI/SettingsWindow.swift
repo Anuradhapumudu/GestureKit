@@ -159,6 +159,12 @@ struct OnboardingView: View {
                         .foregroundColor(.white.opacity(0.75))
                         .multilineTextAlignment(.center)
                         .frame(maxWidth: 420)
+                        
+                    Text("Tip: If you've already checked the box but it's not working, macOS might be confused. Select GestureKit in System Settings, click the minus (-) button to remove it, and try again!")
+                        .font(.caption)
+                        .foregroundColor(.white.opacity(0.5))
+                        .multilineTextAlignment(.center)
+                        .frame(maxWidth: 420)
                 }
 
                 // Permission status
