@@ -1,0 +1,94 @@
+name: Release DMG
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Swift
+      uses: swift-actions/setup-swift@v1
+      with:
+        swift-version: '5.9'
+
+    - name: Build release executable
+      run: swift build -c release
+
+    - name: Create .app Bundle
+      run: |
+        APP_NAME="GestureKit"
+        APP_DIR="${APP_NAME}.app"
+        CONTENTS_DIR="${APP_DIR}/Contents"
+        MACOS_DIR="${CONTENTS_DIR}/MacOS"
+        RESOURCES_DIR="${CONTENTS_DIR}/Resources"
+        
+        mkdir -p "$MACOS_DIR"
+        mkdir -p "$RESOURCES_DIR"
+        
+        # Copy the executable
+        cp .build/release/GestureKit "$MACOS_DIR/"
+        
+        # Copy resources (if any)
+        # Note: If you have an Assets.car or other resources, they would be copied here.
+        
+        # Generate Info.plist
+        cat > "$CONTENTS_DIR/Info.plist" <<EOF
+        <?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+        <plist version="1.0">
+        <dict>
+            <key>CFBundleExecutable</key>
+            <string>GestureKit</string>
+            <key>CFBundleIdentifier</key>
+            <string>com.anuradhapumudu.gesturekit</string>
+            <key>CFBundleName</key>
+            <string>GestureKit</string>
+            <key>CFBundleVersion</key>
+            <string>1.0</string>
+            <key>CFBundleShortVersionString</key>
+            <string>1.0</string>
+            <key>LSMinimumSystemVersion</key>
+            <string>13.0</string>
+            <key>LSUIElement</key>
+            <string>1</string>
+        </dict>
+        </plist>
+        EOF
+
+    - name: Install create-dmg
+      run: brew install create-dmg
+
+    - name: Create DMG
+      run: |
+        create-dmg \
+          --volname "GestureKit Installer" \
+          --window-pos 200 120 \
+          --window-size 600 400 \
+          --icon-size 100 \
+          --icon "GestureKit.app" 175 120 \
+          --hide-extension "GestureKit.app" \
+          --app-drop-link 425 120 \
+          "GestureKit.dmg" \
+          "GestureKit.app"
+
+    - name: Upload DMG Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: GestureKit.dmg
+        path: GestureKit.dmg
+
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: GestureKit.dmg
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

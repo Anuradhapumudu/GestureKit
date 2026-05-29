@@ -1,0 +1,23 @@
+# .gitignore — GestureKit
+
+# Swift Package Manager build artifacts
+.build/
+.swiftpm/
+
+# Xcode
+*.xcodeproj
+*.xcworkspace
+*.xcuserdata
+DerivedData/
+
+# macOS
+.DS_Store
+*.DS_Store
+
+# Compiled binaries
+*.o
+*.d
+
+# Editor configs
+.vscode/
+*.swp

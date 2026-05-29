@@ -1,0 +1,249 @@
+[TrackpadMonitor] Started — listening for trackpad events.
+*** Recognized (0x6e) family*** (26 cols X 18 rows)
+[ZoneDetector] MultitouchSupport loaded successfully. True trackpad zones enabled!
+[PluginLoader] Loaded 0 plugins.
+[RuleEngine] Unmatched gesture: tap in zone: Centre (Centroid: 0.45, 0.42)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Centre (Centroid: 0.65, 0.29)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Centre (Centroid: 0.69, 0.48)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Centre (Centroid: 0.73, 0.59)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Centre (Centroid: 0.73, 0.59)
+[RuleEngine] Unmatched gesture: tap in zone: Centre (Centroid: 0.68, 0.64)
+[RuleEngine] Unmatched gesture: tap in zone: Centre (Centroid: 0.32, 0.78)
+[RuleEngine] Unmatched gesture: tap in zone: Centre (Centroid: 0.41, 0.74)
+[RuleEngine] Unmatched gesture: tap in zone: Centre (Centroid: 0.41, 0.69)
+[RuleEngine] Unmatched gesture: scroll_left in zone: Top Right (Centroid: 0.78, 1.00)
+[RuleEngine] Unmatched gesture: scroll_left in zone: Top Right (Centroid: 0.76, 1.00)
+[RuleEngine] Matched rule 'Top Scroll Left → KB Brightness Down' → keyboard_backlight_down
+[RuleEngine] Matched rule 'Top Scroll Left → KB Brightness Down' → keyboard_backlight_down
+[RuleEngine] Matched rule 'Top Scroll Left → KB Brightness Down' → keyboard_backlight_down
+[RuleEngine] Matched rule 'Top Scroll Left → KB Brightness Down' → keyboard_backlight_down
+[RuleEngine] Matched rule 'Top Scroll Left → KB Brightness Down' → keyboard_backlight_down
+[RuleEngine] Matched rule 'Top Scroll Left → KB Brightness Down' → keyboard_backlight_down
+[RuleEngine] Matched rule 'Top Scroll Left → KB Brightness Down' → keyboard_backlight_down
+[RuleEngine] Matched rule 'Top Scroll Left → KB Brightness Down' → keyboard_backlight_down
+[RuleEngine] Matched rule 'Top Scroll Left → KB Brightness Down' → keyboard_backlight_down
+[RuleEngine] Matched rule 'Top Scroll Left → KB Brightness Down' → keyboard_backlight_down
+[RuleEngine] Unmatched gesture: scroll_right in zone: Top Edge (Centroid: 0.46, 0.98)
+[RuleEngine] Matched rule 'Top Scroll Right → KB Brightness Up' → keyboard_backlight_up
+[RuleEngine] Matched rule 'Top Scroll Right → KB Brightness Up' → keyboard_backlight_up
+[RuleEngine] Matched rule 'Top Scroll Right → KB Brightness Up' → keyboard_backlight_up
+[RuleEngine] Matched rule 'Top Scroll Right → KB Brightness Up' → keyboard_backlight_up
+[RuleEngine] Matched rule 'Top Scroll Right → KB Brightness Up' → keyboard_backlight_up
+[RuleEngine] Unmatched gesture: scroll_right in zone: Top Edge (Centroid: 0.68, 0.95)
+[RuleEngine] Unmatched gesture: scroll_right in zone: Top Edge (Centroid: 0.70, 0.94)
+[RuleEngine] Unmatched gesture: scroll_right in zone: Top Edge (Centroid: 0.72, 0.94)
+[RuleEngine] Unmatched gesture: scroll_right in zone: Top Edge (Centroid: 0.74, 0.93)
+[RuleEngine] Unmatched gesture: scroll_right in zone: Top Right (Centroid: 0.77, 0.92)
+[RuleEngine] Unmatched gesture: scroll_right in zone: Top Right (Centroid: 0.80, 0.91)
+[RuleEngine] Unmatched gesture: scroll_right in zone: Top Right (Centroid: 0.83, 0.91)
+[RuleEngine] Unmatched gesture: scroll_right in zone: Top Right (Centroid: 0.86, 0.90)
+[RuleEngine] Unmatched gesture: scroll_right in zone: Top Right (Centroid: 0.87, 0.90)
+[RuleEngine] Unmatched gesture: scroll_right in zone: Top Edge (Centroid: 0.35, 0.88)
+[RuleEngine] Matched rule 'Top Scroll Right → KB Brightness Up' → keyboard_backlight_up
+[RuleEngine] Matched rule 'Top Scroll Right → KB Brightness Up' → keyboard_backlight_up
+[RuleEngine] Matched rule 'Top Scroll Right → KB Brightness Up' → keyboard_backlight_up
+[RuleEngine] Matched rule 'Top Scroll Right → KB Brightness Up' → keyboard_backlight_up
+[RuleEngine] Matched rule 'Top Scroll Right → KB Brightness Up' → keyboard_backlight_up
+[RuleEngine] Matched rule 'Top Scroll Right → KB Brightness Up' → keyboard_backlight_up
+[RuleEngine] Matched rule 'Top Scroll Right → KB Brightness Up' → keyboard_backlight_up
+[RuleEngine] Matched rule 'Top Scroll Right → KB Brightness Up' → keyboard_backlight_up
+[RuleEngine] Matched rule 'Top Scroll Right → KB Brightness Up' → keyboard_backlight_up
+[RuleEngine] Matched rule 'Top Scroll Right → KB Brightness Up' → keyboard_backlight_up
+[RuleEngine] Unmatched gesture: scroll_right in zone: Top Edge (Centroid: 0.73, 0.89)
+[RuleEngine] Unmatched gesture: scroll_right in zone: Top Edge (Centroid: 0.75, 0.88)
+[RuleEngine] Unmatched gesture: scroll_right in zone: Top Edge (Centroid: 0.75, 0.88)
+[RuleEngine] Unmatched gesture: scroll_left in zone: Top Edge (Centroid: 0.73, 0.89)
+[RuleEngine] Matched rule 'Top Scroll Left → KB Brightness Down' → keyboard_backlight_down
+[RuleEngine] Matched rule 'Top Scroll Left → KB Brightness Down' → keyboard_backlight_down
+[RuleEngine] Matched rule 'Top Scroll Left → KB Brightness Down' → keyboard_backlight_down
+[RuleEngine] Unmatched gesture: scroll_left in zone: Top Edge (Centroid: 0.60, 0.90)
+[RuleEngine] Matched rule 'Top Scroll Left → KB Brightness Down' → keyboard_backlight_down
+[RuleEngine] Matched rule 'Top Scroll Left → KB Brightness Down' → keyboard_backlight_down
+[RuleEngine] Matched rule 'Top Scroll Left → KB Brightness Down' → keyboard_backlight_down
+[RuleEngine] Matched rule 'Top Scroll Left → KB Brightness Down' → keyboard_backlight_down
+[RuleEngine] Matched rule 'Top Scroll Left → KB Brightness Down' → keyboard_backlight_down
+[RuleEngine] Matched rule 'Top Scroll Left → KB Brightness Down' → keyboard_backlight_down
+[RuleEngine] Matched rule 'Top Scroll Left → KB Brightness Down' → keyboard_backlight_down
+[RuleEngine] Matched rule 'Top Scroll Left → KB Brightness Down' → keyboard_backlight_down
+[RuleEngine] Matched rule 'Top Scroll Left → KB Brightness Down' → keyboard_backlight_down
+[RuleEngine] Unmatched gesture: scroll_left in zone: Top Edge (Centroid: 0.31, 0.93)
+[RuleEngine] Unmatched gesture: scroll_left in zone: Top Edge (Centroid: 0.29, 0.94)
+[RuleEngine] Unmatched gesture: scroll_right in zone: Top Edge (Centroid: 0.31, 0.92)
+[RuleEngine] Matched rule 'Top Scroll Right → KB Brightness Up' → keyboard_backlight_up
+[RuleEngine] Matched rule 'Top Scroll Right → KB Brightness Up' → keyboard_backlight_up
+[RuleEngine] Matched rule 'Top Scroll Right → KB Brightness Up' → keyboard_backlight_up
+[RuleEngine] Matched rule 'Top Scroll Right → KB Brightness Up' → keyboard_backlight_up
+[RuleEngine] Matched rule 'Top Scroll Right → KB Brightness Up' → keyboard_backlight_up
+[RuleEngine] Unmatched gesture: scroll_right in zone: Top Edge (Centroid: 0.53, 0.91)
+[RuleEngine] Unmatched gesture: scroll_right in zone: Top Edge (Centroid: 0.54, 0.91)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Bottom Left (Centroid: 0.03, 0.23)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Left Side (Centroid: 0.02, 0.27)
+[RuleEngine] Matched rule 'Left Scroll Up → Brightness Up' → brightness_up
+[RuleEngine] Unmatched gesture: scroll_up in zone: Left Side (Centroid: 0.02, 0.34)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Left Side (Centroid: 0.02, 0.37)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Left Side (Centroid: 0.02, 0.39)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Left Side (Centroid: 0.02, 0.42)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Left Side (Centroid: 0.02, 0.45)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Left Side (Centroid: 0.02, 0.43)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Left Side (Centroid: 0.01, 0.40)
+[RuleEngine] Matched rule 'Left Scroll Down → Brightness Down' → brightness_down
+[RuleEngine] Matched rule 'Left Scroll Down → Brightness Down' → brightness_down
+[RuleEngine] Unmatched gesture: scroll_down in zone: Left Side (Centroid: 0.00, 0.26)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Bottom Left (Centroid: 0.00, 0.23)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Bottom Left (Centroid: 0.00, 0.19)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Bottom Left (Centroid: 0.00, 0.17)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Bottom Left (Centroid: 0.00, 0.15)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Bottom Left (Centroid: 0.00, 0.17)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Bottom Left (Centroid: 0.00, 0.22)
+[RuleEngine] Matched rule 'Left Scroll Up → Brightness Up' → brightness_up
+[RuleEngine] Matched rule 'Left Scroll Up → Brightness Up' → brightness_up
+[RuleEngine] Matched rule 'Left Scroll Up → Brightness Up' → brightness_up
+[RuleEngine] Matched rule 'Left Scroll Up → Brightness Up' → brightness_up
+[RuleEngine] Matched rule 'Left Scroll Up → Brightness Up' → brightness_up
+[RuleEngine] Unmatched gesture: scroll_up in zone: Left Side (Centroid: 0.01, 0.49)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Left Side (Centroid: 0.01, 0.46)
+[RuleEngine] Matched rule 'Left Scroll Down → Brightness Down' → brightness_down
+[RuleEngine] Matched rule 'Left Scroll Down → Brightness Down' → brightness_down
+[RuleEngine] Matched rule 'Left Scroll Down → Brightness Down' → brightness_down
+[RuleEngine] Unmatched gesture: scroll_down in zone: Bottom Left (Centroid: 0.00, 0.22)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Bottom Left (Centroid: 0.00, 0.17)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Bottom Left (Centroid: 0.00, 0.12)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Bottom Left (Centroid: 0.00, 0.09)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Bottom Left (Centroid: 0.00, 0.08)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Left Side (Centroid: 0.05, 0.48)
+[RuleEngine] Matched rule 'Left Scroll Down → Brightness Down' → brightness_down
+[RuleEngine] Matched rule 'Left Scroll Down → Brightness Down' → brightness_down
+[RuleEngine] Matched rule 'Left Scroll Down → Brightness Down' → brightness_down
+[RuleEngine] Unmatched gesture: scroll_down in zone: Left Side (Centroid: 0.03, 0.32)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Left Side (Centroid: 0.03, 0.28)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Left Side (Centroid: 0.02, 0.26)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Bottom Left (Centroid: 0.02, 0.24)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Left Side (Centroid: 0.02, 0.26)
+[RuleEngine] Matched rule 'Left Scroll Up → Brightness Up' → brightness_up
+[RuleEngine] Matched rule 'Left Scroll Up → Brightness Up' → brightness_up
+[RuleEngine] Matched rule 'Left Scroll Up → Brightness Up' → brightness_up
+[RuleEngine] Matched rule 'Left Scroll Up → Brightness Up' → brightness_up
+[RuleEngine] Unmatched gesture: scroll_up in zone: Left Side (Centroid: 0.03, 0.50)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Left Side (Centroid: 0.03, 0.50)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Left Side (Centroid: 0.03, 0.48)
+[RuleEngine] Matched rule 'Left Scroll Down → Brightness Down' → brightness_down
+[RuleEngine] Matched rule 'Left Scroll Down → Brightness Down' → brightness_down
+[RuleEngine] Matched rule 'Left Scroll Down → Brightness Down' → brightness_down
+[RuleEngine] Unmatched gesture: scroll_down in zone: Left Side (Centroid: 0.01, 0.30)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Left Side (Centroid: 0.01, 0.29)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Right Side (Centroid: 1.00, 0.47)
+[RuleEngine] Matched rule 'Right Scroll Up → Volume Up' → volume_up
+[RuleEngine] Matched rule 'Right Scroll Up → Volume Up' → volume_up
+[RuleEngine] Matched rule 'Right Scroll Up → Volume Up' → volume_up
+[RuleEngine] Unmatched gesture: scroll_up in zone: Right Side (Centroid: 1.00, 0.66)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Right Side (Centroid: 1.00, 0.70)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Top Right (Centroid: 1.00, 0.75)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Top Right (Centroid: 1.00, 0.79)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Top Right (Centroid: 1.00, 0.81)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Top Right (Centroid: 1.00, 0.78)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 1.00, 0.73)
+[RuleEngine] Matched rule 'Right Scroll Down → Volume Down' → volume_down
+[RuleEngine] Matched rule 'Right Scroll Down → Volume Down' → volume_down
+[RuleEngine] Matched rule 'Right Scroll Down → Volume Down' → volume_down
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 1.00, 0.57)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 1.00, 0.53)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 1.00, 0.49)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 1.00, 0.46)
+[RuleEngine] Matched rule 'Right Scroll Down → Volume Down' → volume_down
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 1.00, 0.39)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 1.00, 0.37)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Right Side (Centroid: 1.00, 0.41)
+[RuleEngine] Matched rule 'Right Scroll Up → Volume Up' → volume_up
+[RuleEngine] Matched rule 'Right Scroll Up → Volume Up' → volume_up
+[RuleEngine] Matched rule 'Right Scroll Up → Volume Up' → volume_up
+[RuleEngine] Matched rule 'Right Scroll Up → Volume Up' → volume_up
+[RuleEngine] Matched rule 'Right Scroll Up → Volume Up' → volume_up
+[RuleEngine] Unmatched gesture: scroll_up in zone: Top Right (Centroid: 1.00, 0.77)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Top Right (Centroid: 1.00, 0.81)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Top Right (Centroid: 1.00, 0.85)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Top Right (Centroid: 1.00, 0.88)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Top Right (Centroid: 1.00, 0.90)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Top Right (Centroid: 1.00, 0.91)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Right Side (Centroid: 0.91, 0.36)
+[RuleEngine] Matched rule 'Right Scroll Up → Volume Up' → volume_up
+[RuleEngine] Matched rule 'Right Scroll Up → Volume Up' → volume_up
+[RuleEngine] Matched rule 'Right Scroll Up → Volume Up' → volume_up
+[RuleEngine] Matched rule 'Right Scroll Up → Volume Up' → volume_up
+[RuleEngine] Matched rule 'Right Scroll Up → Volume Up' → volume_up
+[RuleEngine] Unmatched gesture: scroll_up in zone: Right Side (Centroid: 0.92, 0.63)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Right Side (Centroid: 0.92, 0.63)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 0.92, 0.61)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 0.92, 0.59)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 0.92, 0.55)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 0.92, 0.52)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 0.92, 0.47)
+[RuleEngine] Matched rule 'Right Scroll Down → Volume Down' → volume_down
+[RuleEngine] Matched rule 'Right Scroll Down → Volume Down' → volume_down
+[RuleEngine] Unmatched gesture: scroll_down in zone: Bottom Right (Centroid: 0.93, 0.24)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Bottom Right (Centroid: 0.94, 0.19)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Bottom Right (Centroid: 0.94, 0.16)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Top Right (Centroid: 0.94, 0.88)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Top Right (Centroid: 0.94, 0.83)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Top Right (Centroid: 0.93, 0.77)
+[RuleEngine] Matched rule 'Right Scroll Down → Volume Down' → volume_down
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 0.93, 0.68)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 0.93, 0.64)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 0.93, 0.61)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 0.93, 0.57)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 0.93, 0.53)
+[RuleEngine] Matched rule 'Right Scroll Down → Volume Down' → volume_down
+[RuleEngine] Matched rule 'Right Scroll Down → Volume Down' → volume_down
+[RuleEngine] Matched rule 'Right Scroll Down → Volume Down' → volume_down
+[RuleEngine] Matched rule 'Right Scroll Down → Volume Down' → volume_down
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 0.91, 0.53)
+[RuleEngine] Matched rule 'Right Scroll Down → Volume Down' → volume_down
+[RuleEngine] Matched rule 'Right Scroll Down → Volume Down' → volume_down
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 0.91, 0.40)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 0.92, 0.38)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 0.92, 0.36)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 0.92, 0.34)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 0.92, 0.32)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 0.92, 0.30)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 0.92, 0.27)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Bottom Right (Centroid: 0.92, 0.23)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Bottom Right (Centroid: 0.92, 0.19)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Bottom Right (Centroid: 0.92, 0.15)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Bottom Right (Centroid: 0.92, 0.14)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Top Right (Centroid: 0.96, 0.76)
+[RuleEngine] Matched rule 'Right Scroll Down → Volume Down' → volume_down
+[RuleEngine] Matched rule 'Right Scroll Down → Volume Down' → volume_down
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 0.95, 0.62)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 0.95, 0.60)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 0.94, 0.57)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 0.94, 0.56)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 0.94, 0.54)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Right Side (Centroid: 0.94, 0.57)
+[RuleEngine] Matched rule 'Right Scroll Up → Volume Up' → volume_up
+[RuleEngine] Matched rule 'Right Scroll Up → Volume Up' → volume_up
+[RuleEngine] Matched rule 'Right Scroll Up → Volume Up' → volume_up
+[RuleEngine] Unmatched gesture: scroll_up in zone: Top Right (Centroid: 0.96, 0.78)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Top Right (Centroid: 0.96, 0.80)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Top Right (Centroid: 0.96, 0.76)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 0.96, 0.70)
+[RuleEngine] Matched rule 'Right Scroll Down → Volume Down' → volume_down
+[RuleEngine] Matched rule 'Right Scroll Down → Volume Down' → volume_down
+[RuleEngine] Matched rule 'Right Scroll Down → Volume Down' → volume_down
+[RuleEngine] Matched rule 'Right Scroll Down → Volume Down' → volume_down
+[RuleEngine] Matched rule 'Right Scroll Down → Volume Down' → volume_down
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 0.94, 0.38)
+[RuleEngine] Unmatched gesture: scroll_down in zone: Right Side (Centroid: 0.94, 0.36)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Right Side (Centroid: 0.94, 0.40)
+[RuleEngine] Matched rule 'Right Scroll Up → Volume Up' → volume_up
+[RuleEngine] Matched rule 'Right Scroll Up → Volume Up' → volume_up
+[RuleEngine] Matched rule 'Right Scroll Up → Volume Up' → volume_up
+[RuleEngine] Unmatched gesture: scroll_up in zone: Right Side (Centroid: 0.95, 0.59)
+[RuleEngine] Unmatched gesture: scroll_up in zone: Right Side (Centroid: 0.95, 0.60)
+[RuleEngine] Unmatched gesture: tap in zone: Centre (Centroid: 0.53, 0.74)
+[RuleEngine] Unmatched gesture: tap in zone: Centre (Centroid: 0.22, 0.44)
+[RuleEngine] Unmatched gesture: tap in zone: Bottom Edge (Centroid: 0.25, 0.14)
+[RuleEngine] Unmatched gesture: tap in zone: Top Edge (Centroid: 0.46, 0.97)
+[RuleEngine] Unmatched gesture: tap in zone: Centre (Centroid: 0.30, 0.64)
+[RuleEngine] Unmatched gesture: tap in zone: Centre (Centroid: 0.17, 0.56)
+[RuleEngine] Unmatched gesture: tap in zone: Centre (Centroid: 0.53, 0.75)
+[RuleEngine] Unmatched gesture: tap in zone: Centre (Centroid: 0.58, 0.46)
+[TrackpadMonitor] Stopped.
